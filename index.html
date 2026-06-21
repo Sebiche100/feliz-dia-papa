@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feliz Día Papá</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+
+    <canvas id="nubes-canvas"></canvas>
+
+    <audio id="audio" src="/cancion.mp3" loop></audio>
+
+    <div class="pagina">
+
+      <div class="encabezado">
+        <h1>Feliz Día Papá</h1>
+        <div class="linea"></div>
+      </div>
+
+      <div class="carrusel-wrapper">
+        <button id="prev" aria-label="Anterior">&#8249;</button>
+
+        <div class="carrusel" id="carrusel">
+          <img class="slide active" src="/fotos/foto1.jpeg" alt="Foto 1" />
+          <img class="slide" src="/fotos/foto2.jpeg" alt="Foto 2" />
+          <img class="slide" src="/fotos/foto3.jpeg" alt="Foto 3" />
+          <img class="slide" src="/fotos/foto4.jpeg" alt="Foto 4" />
+          <img class="slide" src="/fotos/foto5.jpeg" alt="Foto 5" />
+          <img class="slide" src="/fotos/foto6.jpeg" alt="Foto 6" />
+          <img class="slide" src="/fotos/foto7.jpeg" alt="Foto 7" />
+          <img class="slide" src="/fotos/foto8.jpeg" alt="Foto 8" />
+          <img class="slide" src="/fotos/foto9.jpeg" alt="Foto 9" />
+          <img class="slide" src="/fotos/foto10.jpeg" alt="Foto 10" />
+          <img class="slide" src="/fotos/foto11.jpeg" alt="Foto 11" />
+          <img class="slide" src="/fotos/foto12.jpeg" alt="Foto 12" />
+          <img class="slide" src="/fotos/foto13.jpeg" alt="Foto 13" />
+          <img class="slide" src="/fotos/foto14.jpeg" alt="Foto 14" />
+          <img class="slide" src="/fotos/foto15.jpeg" alt="Foto 15" />
+          <img class="slide" src="/fotos/foto16.jpeg" alt="Foto 16" />
+          <img class="slide" src="/fotos/foto17.jpeg" alt="Foto 17" />
+          <img class="slide" src="/fotos/foto18.jpeg" alt="Foto 18" />
+        </div>
+
+        <button id="next" aria-label="Siguiente">&#8250;</button>
+      </div>
+
+      <div class="puntos" id="puntos"></div>
+
+      <div class="mensaje" id="mensaje"></div>
+
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

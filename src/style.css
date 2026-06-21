@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #e8f4fd;
+}
+
+#nubes-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.pagina {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+.encabezado {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.2rem;
+  color: #1a5f7a;
+  margin-bottom: 0.5rem;
+}
+
+.linea {
+  width: 60px;
+  height: 3px;
+  background: #2e86c1;
+  border-radius: 2px;
+  margin: 0 auto;
+}
+
+.carrusel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.carrusel {
+  flex: 1;
+  position: relative;
+  border-radius: 16px;
+  border: 2px solid #2e86c1;
+  background: #d6eaf8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  border-radius: 14px;
+}
+
+.slide.active {
+  position: relative;
+  opacity: 1;
+}
+
+button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #2e86c1;
+  background: rgba(255,255,255,0.85);
+  color: #2e86c1;
+  font-size: 24px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+}
+
+button:hover {
+  background: #2e86c1;
+  color: white;
+}
+
+.puntos {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.punto {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #aed6f1;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.punto.active {
+  background: #1a5f7a;
+}
+
+.mensaje {
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  color: #1a5f7a;
+  line-height: 1.8;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.80);
+  border: 1px solid #aed6f1;
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  transition: opacity 0.4s ease;
+}
+
+#btn-audio {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
+  background: rgba(255,255,255,0.85);
+  border: 1.5px solid #2e86c1;
+  color: #1a5f7a;
+  border-radius: 50px;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+}
+
+#btn-audio:hover {
+  background: #2e86c1;
+  color: white;
+}
