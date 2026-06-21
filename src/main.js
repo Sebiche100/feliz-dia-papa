@@ -91,6 +91,7 @@ document.addEventListener('touchstart', iniciarAudio);
 
 // ── CARRUSEL ───────────────────────────────────────────────────
 const slides = document.querySelectorAll('.slide');
+const carruselEl = document.getElementById('carrusel');
 const contenedorPuntos = document.getElementById('puntos');
 const mensajeEl = document.getElementById('mensaje');
 let actual = 0;
@@ -116,13 +117,38 @@ const mensajes = [
   'Gracias Papá',
 ];
 
-slides.forEach((_, i) => {
+// Ajusta la altura del carrusel según la foto actual
+function ajustarAltura() {
+  const img = slides[actual];
+  if (!img.naturalWidth) return;
+  const ancho = carruselEl.offsetWidth;
+  const ratio = img.naturalHeight / img.naturalWidth;
+  const altura = Math.min(ancho * ratio, window.innerHeight * 0.7);
+  carruselEl.style.height = altura + 'px';
+}
+
+// Genera los puntos
+slides.forEach((img, i) => {
+  img.dataset.index = i;
+
+  // Cuando cargue la imagen, ajusta si es la activa
+  img.addEventListener('load', () => {
+    if (i === actual) ajustarAltura();
+  });
+
+  // Si ya estaba cacheada
+  if (img.complete && img.naturalWidth) {
+    if (i === actual) ajustarAltura();
+  }
+
   const punto = document.createElement('div');
   punto.classList.add('punto');
   if (i === 0) punto.classList.add('active');
   punto.onclick = () => irA(i);
   contenedorPuntos.appendChild(punto);
 });
+
+window.addEventListener('resize', ajustarAltura);
 
 mensajeEl.textContent = mensajes[0];
 
@@ -132,6 +158,9 @@ function irA(n) {
   actual = (n + slides.length) % slides.length;
   slides[actual].classList.add('active');
   contenedorPuntos.children[actual].classList.add('active');
+
+  ajustarAltura();
+
   mensajeEl.style.opacity = '0';
   setTimeout(() => {
     mensajeEl.textContent = mensajes[actual];

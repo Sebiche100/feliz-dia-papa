@@ -67,7 +67,8 @@ h1 {
   border: 2px solid #2e86c1;
   background: #d6eaf8;
   overflow: hidden;
-  height: 65vh;
+  height: 300px;
+  transition: height 0.4s ease;
 }
 
 .slide {
