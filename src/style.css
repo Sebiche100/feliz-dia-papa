@@ -66,18 +66,17 @@ h1 {
   border-radius: 16px;
   border: 2px solid #2e86c1;
   background: #d6eaf8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
+  min-height: 200px;
 }
 
 .slide {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  max-height: 80vh;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
   opacity: 0;
   transition: opacity 0.5s ease;
   border-radius: 14px;
@@ -86,8 +85,11 @@ h1 {
 .slide.active {
   position: relative;
   opacity: 1;
+  height: auto;
+  min-height: 200px;
 }
 
+/* Botones — igual para ambos */
 button {
   width: 48px;
   height: 48px;
@@ -99,13 +101,19 @@ button {
   cursor: pointer;
   flex-shrink: 0;
   transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
-button:hover {
+button:hover, button:active {
   background: #2e86c1;
   color: white;
 }
 
+/* Puntos */
 .puntos {
   display: flex;
   gap: 8px;
@@ -120,12 +128,14 @@ button:hover {
   background: #aed6f1;
   cursor: pointer;
   transition: background 0.2s;
+  flex-shrink: 0;
 }
 
 .punto.active {
   background: #1a5f7a;
 }
 
+/* Mensaje — solo uno visible a la vez */
 .mensaje {
   max-width: 480px;
   width: 100%;
@@ -133,30 +143,13 @@ button:hover {
   color: #1a5f7a;
   line-height: 1.8;
   font-size: 1rem;
-  background: rgba(255,255,255,0.80);
+  background: rgba(255,255,255,0.85);
   border: 1px solid #aed6f1;
   border-radius: 16px;
   padding: 1rem 1.5rem;
   transition: opacity 0.4s ease;
-}
-
-#btn-audio {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  z-index: 10;
-  background: rgba(255,255,255,0.85);
-  border: 1.5px solid #2e86c1;
-  color: #1a5f7a;
-  border-radius: 50px;
-  padding: 0.5rem 1.2rem;
-  font-size: 0.9rem;
-  cursor: pointer;
-  width: auto;
-  height: auto;
-}
-
-#btn-audio:hover {
-  background: #2e86c1;
-  color: white;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
